@@ -1,0 +1,29 @@
+- name: Install Git
+  homebrew:
+    name: git
+    state: present
+
+- name: Configure Git user name
+  git_config:
+    name: user.name
+    value: "{{ git_user }}"
+    scope: global
+
+- name: Configure Git user email
+  git_config:
+    name: user.email
+    value: "{{ git_email }}"
+    scope: global
+
+- name: Enable credential memory cache
+  git_config:
+    name: credential.helper
+    value: cache
+    scope: global
+
+- name: Set default branch name to 'main'
+  git_config:
+    name: init.defaultBranch
+    value: main
+    scope: global
+

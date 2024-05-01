@@ -1,0 +1,27 @@
+node_versions:
+  - '20.12.2'
+  - '18.19.1'
+  - '16.15.0'
+
+git_user: KatKmiotek
+git_email: kat.kmiotek@zoopla.co.uk
+
+dev_tools:
+  - htop
+  - wget
+  - curl
+  - tree
+  - watch
+  - jq
+
+vs_code_extensions:
+- sdras.night-owl
+- esbenp.prettier-vscode
+- dbaeumer.vscode-eslint
+- rangav.vscode-thunder-client
+- HashiCorp.terraform
+- ms-azuretools.vscode-docker
+
+gist_url: "https://gist.githubusercontent.com/KatKmiotek/gist_id/raw/settings.json"
+vs_code_settings_dir: "{{ ansible_env.HOME }}/.config/Code/User"
+vs_code_settings_file: "{{ vs_code_settings_dir }}/settings.json"

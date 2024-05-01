@@ -1,0 +1,21 @@
+- name: Install Terraform
+  get_url:
+    url: 
+    dest: /tmp/terraform.zip
+    mode: '0755'
+  register: download_terraform
+
+- name: Unzip Terraform
+  unarchive:
+    src: /tmp/terraform.zip
+    dest: /usr/local/bin
+    remote_src: yes
+  when: download_terraform.changed
+
+- name: Install AWS CLI
+  shell: |
+   curl "" -o "awscliv2.zip"
+   unzip awscliv2.zip
+   sudo ./aws/install
+  args:
+   executable: /bin/bash

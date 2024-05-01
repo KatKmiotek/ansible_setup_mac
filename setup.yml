@@ -1,0 +1,36 @@
+- name: Setup my workstation (Mac)
+  hosts: localhost
+  become: no
+  vars_files:
+    - ./vars/vars.yml
+  handlers:
+    - name: restart vscode
+      command: killall Code
+      ignore_errors: yes
+
+  tasks:
+    - name: Install Homebrew
+      include_tasks: ./tasks/install_brew.yml
+    
+    - name: Install git
+      include_tasks: ./tasks/install_git.yml
+
+    - name: Install dev tools
+      include_tasks: ./tasks/install_dev_tools.yml
+
+    - name: Install nvm
+      include_tasks: ./tasks/install_nvm.yml
+
+    - name: Install node global packages
+      include_tasks: ./tasks/node_packages.yml
+
+    - name: Install and setup VS Code
+      include_tasks: ./tasks/Install_vs_code.yml
+
+    - name: Install infra tools
+      include_tasks: ./tasks/install_infra_tools.yml
+   
+    - name: Install Docker
+      include_tasks: ./tasks/install_docker.yml
+        
+        

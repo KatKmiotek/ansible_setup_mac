@@ -1,0 +1,16 @@
+
+- name: Download and run the NVM install script
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+    executable: /bin/bash
+  environment:
+    PROFILE: /dev/null
+
+- name: Install Node.js versions
+  shell: |
+    . $HOME/.nvm/nvm.sh
+    nvm install {{ item }}
+  loop: "{{ node_versions }}"
+  args:
+    executable: /bin/bash

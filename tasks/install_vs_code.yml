@@ -1,0 +1,23 @@
+- name: Install VS Code
+  homebrew:
+    name: visual-studio-code
+    state: present
+
+- name: Install VS Code extensions
+  shell: code --install-extension {{ item }}
+  loop: "{{ vs_code_extensions }}"
+  ignore_errors: true 
+
+- name: Ensure VS Code settings directory exists
+  file:
+    path: "{{ vs_code_settings_dir }}"
+    state: directory
+    mode: '0755'
+
+- name: Download VS Code settings from GitHub Gist
+  get_url:
+    url: "{{ gist_url }}"
+    dest: "{{ vs_code_settings_file }}"
+    force: yes
+  notify: 
+    - restart vscode

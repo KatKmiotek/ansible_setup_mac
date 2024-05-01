@@ -1,0 +1,20 @@
+- name: Ensure Homebrew directories are writable
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: admin
+    mode: '0755'
+  with_items:
+    - /usr/local/bin
+    - /usr/local/lib
+    - /usr/local/sbin
+    - /usr/local/share
+    - /usr/local/etc
+
+- name: Install common CLI tools via Homebrew
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ dev_tools }}"
+    

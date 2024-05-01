@@ -22,6 +22,14 @@ vs_code_extensions:
 - HashiCorp.terraform
 - ms-azuretools.vscode-docker
 
-gist_url: "https://gist.githubusercontent.com/KatKmiotek/gist_id/raw/settings.json"
+gist_url: "https://gist.githubusercontent.com/KatKmiotek/{{gist_id}}/raw/settings.json"
 vs_code_settings_dir: "{{ ansible_env.HOME }}/.config/Code/User"
 vs_code_settings_file: "{{ vs_code_settings_dir }}/settings.json"
+
+node_global_packages: 
+- yarn
+- eslint
+- typescript-language-server
+- typescript
+- ts-node
+

@@ -1,15 +1,5 @@
-- name: Install Docker
-  shell: |
-    
-  args:
-    executable: /bin/bash
-
-- name: Install Docker tools
-   shell: {{ item }}
-   loop:
-    - docker-ce
-    - docker-ce-cli 
-    - containerd.io 
-    - docker-buildx-plugin 
-    - docker-compose-plugin
+- name: Install Docker Desktop
+  homebrew_cask:
+    name: docker
+    state: present
 

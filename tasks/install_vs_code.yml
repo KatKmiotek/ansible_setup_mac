@@ -8,7 +8,7 @@
   loop: "{{ vs_code_extensions }}"
   ignore_errors: true 
 
-- name: Ensure VS Code settings directory exists
+- name: VS Code settings directory exists
   file:
     path: "{{ vs_code_settings_dir }}"
     state: directory

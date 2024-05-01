@@ -1,0 +1,4 @@
+- name: Install dotnet
+  # homebrew:
+  #   name: dotnet 
+  # or use homebrew_cask: for sdk

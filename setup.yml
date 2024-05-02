@@ -18,8 +18,8 @@
     - name: Install dev tools
       include_tasks: ./tasks/install_dev_tools.yml
 
-    - name: Install nvm
-      include_tasks: ./tasks/install_nvm.yml
+    - name: Install fnm
+      include_tasks: ./tasks/install_fnm.yml
 
     - name: Install node global packages
       include_tasks: ./tasks/node_packages.yml

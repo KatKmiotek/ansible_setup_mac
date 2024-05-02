@@ -21,6 +21,9 @@ vs_code_extensions:
 - rangav.vscode-thunder-client
 - HashiCorp.terraform
 - ms-azuretools.vscode-docker
+- ms-dotnettools.dotnet-maui
+- streetsidesoftware.code-spell-checker
+- johnpapa.vscode-peacock
 
 gist_url: "https://gist.githubusercontent.com/KatKmiotek/{{gist_id}}/raw/settings.json"
 vs_code_settings_dir: "{{ ansible_env.HOME }}/.config/Code/User"

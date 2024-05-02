@@ -12,9 +12,17 @@
     - /usr/local/share
     - /usr/local/etc
 
-- name: Install common CLI tools via Homebrew
+- name: Install common CLI tools
   homebrew:
     name: "{{ item }}"
     state: present
   loop: "{{ dev_tools }}"
+
+- name: Add .bash_profile to .profile
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.profile"
+    line: '[[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"'
+    state: present
+    create: yes
+
     

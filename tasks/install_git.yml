@@ -21,7 +21,7 @@
     value: cache
     scope: global
 
-- name: Set default branch name to 'main'
+- name: Set default branch to 'main'
   git_config:
     name: init.defaultBranch
     value: main

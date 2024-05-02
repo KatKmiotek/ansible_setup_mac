@@ -1,4 +1,4 @@
-- name: Setup my workstation (Mac)
+- name: Setup my workstation
   hosts: localhost
   become: no
   vars_files:

@@ -24,6 +24,7 @@ vs_code_extensions:
 - ms-dotnettools.dotnet-maui
 - streetsidesoftware.code-spell-checker
 - johnpapa.vscode-peacock
+- SonarSource.sonarlint-vscode
 
 gist_url: "https://gist.githubusercontent.com/KatKmiotek/a3f61801c173258d26c09a1d605b8223/raw/1f9e47ba7242c3d51959e3409892b32cd07ae361/vs-settings.json"
 vs_code_settings_dir: "{{ ansible_env.HOME }}/.config/Code/User"

@@ -2,6 +2,10 @@
 
 This project contains Ansible playbook that installs and sets up developer tools
 
+### Prerequisites
+Xcode Tool needs to be installed on the machine.  
+If running `xcode-select -p` doesn't return path value run `xcode-select --install` Installation shouldn't take longer than 5 mins.  
+
 ### Instruction
 
 1. Setup Ansible on your machine by running:

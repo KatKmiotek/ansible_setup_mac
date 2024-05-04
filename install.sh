@@ -1,7 +1,19 @@
 #!/bin/bash
 
-echo "Installing Ansible with pip..."
-pip3 install --user ansible
+check_and_install_pip3() {
+    if ! command -v pip3 &> /dev/null
+    then
+        echo "Installing pip3..."
+        sudo easy_install pip
+    else
+        echo "pip3 is already installed."
+    fi
+}
 
-ansible --version
-echo "Ansible installed successfully."
+main() {
+    check_and_install_pip3
+    sudo pip3 install ansible
+    echo "Ansible is installed."
+}
+
+main

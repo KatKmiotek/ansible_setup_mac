@@ -1,0 +1,14 @@
+- name: Install OpenVPN
+  homebrew_cask:
+    name: openvpn-connect
+    state: present
+
+- name: Install Azure Data Studio
+  homebrew_cask:
+    name: azure-data-studio
+    state: present
+
+- name: Install Slack via Homebrew Cask
+  homebrew_cask:
+    name: slack
+    state: present

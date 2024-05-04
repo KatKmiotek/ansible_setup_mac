@@ -1,0 +1,4 @@
+- name: Install Warp
+  homebrew_cask:
+    name: warp
+    state: present

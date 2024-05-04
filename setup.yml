@@ -7,6 +7,11 @@
     - name: restart vscode
       command: killall Code
       ignore_errors: yes
+      
+    - name: Update Homebrew
+      become: no
+      homebrew:
+        update_cache: yes
 
   tasks:
     - name: Install Homebrew
@@ -30,7 +35,5 @@
     - name: Install infra tools
       include_tasks: ./tasks/install_infra_tools.yml
    
-    - name: Install Docker
-      include_tasks: ./tasks/install_docker.yml
-        
+
         

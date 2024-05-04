@@ -3,8 +3,22 @@ node_versions:
   - '18.19.1'
   - '16.15.0'
 
+dotnet_vesrions:
+- '6'
+- '7'
+- '8'
+
 git_user: KatKmiotek
 git_email: kat.kmiotek@zoopla.co.uk
+
+git_aliases:
+- { name: 'st', value: 'status' }
+- { name: 'ac', value: '!git add -A && git commit -m' }
+- { name: 'lg', value: 'log --graph --oneline --decorate --all' }
+- { name: 'undo', value: 'reset HEAD~1' }
+- { name: 'pt', value: '!git push --set-upstream origin $(git symbolic-ref --short HEAD)'}
+- { name: 'dc', value: 'diff --cached'}
+- { name: 'co', value: 'checkout'}
 
 dev_tools:
   - htop
@@ -36,4 +50,6 @@ node_global_packages:
 - typescript-language-server
 - typescript
 - ts-node
+
+aws_region: "eu-west-1"
 

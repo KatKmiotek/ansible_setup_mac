@@ -3,4 +3,27 @@
     name: terraform
     state: present
 
+- name: Install Docker Desktop
+  homebrew_cask:
+    name: docker
+    state: present
+
 - name: Install AWS CLI
+  homebrew:
+    name: awscli
+    state: present
+
+- name: Configure AWS CLI - .aws/
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.aws"
+    state: directory
+    mode: '0755'
+
+- name: Configure AWS CLI - defaults
+  ansible.builtin.copy:
+    dest: "{{ ansible_env.HOME }}/.aws/config"
+    content: |
+      [default]
+      region = {{ aws_region }}
+      output = json
+    mode: '0600'

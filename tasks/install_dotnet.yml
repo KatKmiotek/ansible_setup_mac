@@ -1,4 +1,21 @@
-- name: Install dotnet
-  # homebrew:
-  #   name: dotnet 
-  # or use homebrew_cask: for sdk
+- name: Install .NET SDK s
+  homebrew:
+    name: "dotnet-sdk@{{ item }}.0"
+    state: present
+  loop: "{{ dotnet_versions }}"
+
+- name: DOTNET_HOME in .bash_profile
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    line: 'export DOTNET_HOME="/usr/local/share/dotnet"'
+    state: present
+    create: yes
+    insertafter: EOF
+
+- name: Export DOTNET_HOME PATH
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    line: 'export PATH="$DOTNET_HOME:$PATH"'
+    state: present
+    insertafter: 'export DOTNET_HOME="/usr/local/share/dotnet"'
+  when: ansible_shell_type == 'bash'

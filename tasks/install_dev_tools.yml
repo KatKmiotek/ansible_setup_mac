@@ -5,7 +5,7 @@
     owner: "{{ ansible_user_id }}"
     group: admin
     mode: '0755'
-  with_items:
+  loop:
     - /usr/local/bin
     - /usr/local/lib
     - /usr/local/sbin

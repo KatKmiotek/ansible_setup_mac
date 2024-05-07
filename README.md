@@ -4,14 +4,14 @@ This project contains Ansible playbook that installs and sets up developer tools
 Tasks included in this playbook install:  
 - homebrew ( along with Rosetta2 )
 - git and configure git aliases
-- common command line tools
+- common command line tools ( includes k6 )
 - fnm ( fast node manager and node versions )
 - global node packages
 - and configure with extensions and settings VS Code
 - few common infra tools ( Terraform, AWS CLI, docker )
 - .NET sdk
 - Warp
-- desktop apps ( Slack, Azure Data Studio, OpenVPN )
+- desktop apps ( Slack, Azure Data Studio, OpenVPN, PowerShell )
 
 ### Prerequisites
 Xcode Tool needs to be installed on the machine.  

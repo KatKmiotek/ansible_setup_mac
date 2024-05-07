@@ -12,3 +12,8 @@
   homebrew_cask:
     name: slack
     state: present
+
+- name: Install PowerShell
+  homebrew_cask:
+    name: powershell
+    state: present

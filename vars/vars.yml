@@ -27,6 +27,7 @@ dev_tools:
   - tree
   - watch
   - jq
+  - k6
 
 vs_code_extensions:
 - sdras.night-owl
@@ -47,9 +48,8 @@ vs_code_settings_file: "{{ vs_code_settings_dir }}/settings.json"
 node_global_packages: 
 - yarn
 - eslint
-- typescript-language-server
-- typescript
-- ts-node
+- artillery
+- pnpm
 
 aws_region: "eu-west-1"
 

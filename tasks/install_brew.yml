@@ -1,11 +1,25 @@
 - name: Check if Homebrew is installed
   stat:
-    path: /usr/local/bin/brew
+    path: /opt/homebrew/bin/brew
   register: brew_installed
 
 - name: Install Homebrew
   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not brew_installed.stat.exists
+
+- name: Add Homebrew to PATH in .bash_profile
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    line: 'export PATH="/opt/homebrew/bin:$PATH"'
+    create: yes
+    state: present
+    backup: yes
+
+- name: Apply changes from .bash_profile
+  shell: source {{ ansible_env.HOME }}/.bash_profile
+  args:
+    executable: /bin/bash
+  ignore_errors: true
 
 - name: Install Rosetta 2
   shell: /usr/sbin/softwareupdate --install-rosetta --agree-to-license

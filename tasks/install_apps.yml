@@ -17,3 +17,9 @@
   homebrew_cask:
     name: powershell
     state: present
+
+- name: Install Obsidian
+  homebrew_cask:
+    name: obsidian
+    state: present
+    

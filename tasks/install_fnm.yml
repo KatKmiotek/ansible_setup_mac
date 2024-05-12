@@ -6,14 +6,11 @@
 - name: Add fnm to the PATH
   lineinfile:
     path: "{{ ansible_env.HOME }}/.bash_profile"
-    line: "{{ item }}"
+    line: 'export PATH="$HOME/.fnm:$PATH"'
     state: present
     create: yes
     insertafter: EOF
     backup: yes
-  loop:
-    - 'export PATH="$HOME/.fnm:$PATH"'
-    - 'eval "$(fnm env)"'
 
 - name: Source .bash_profile
   shell: source {{ ansible_env.HOME }}/.bash_profile

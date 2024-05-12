@@ -3,22 +3,26 @@
     name: fnm
     state: present
 
-- name: Install Node versions
-  shell: fnm install {{ item }}
-  loop: "{{ node_versions }}"
-  environment:
-    PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
-
-- name: Set default Node versions
-  shell: fnm default {{ node_versions[0] }}
-  environment:
-    PATH: "{{ ansible_env.HOME }}/.fnm:{{ ansible_env.PATH }}"
-
 - name: Add fnm to the PATH
   lineinfile:
     path: "{{ ansible_env.HOME }}/.bash_profile"
-    line: 'export PATH="$HOME/.fnm:$PATH"'
+    line: "{{ item }}"
     state: present
     create: yes
     insertafter: EOF
     backup: yes
+  loop:
+    - 'export PATH="$HOME/.fnm:$PATH"'
+    - 'eval "$(fnm env)"'
+
+- name: Source .bash_profile
+  shell: source {{ ansible_env.HOME }}/.bash_profile
+  args:
+    executable: /bin/bash
+
+- name: Install Node versions
+  shell: fnm install {{ item }}
+  loop: "{{ node_versions }}"
+
+- name: Set default Node versions
+  shell: fnm default {{ node_versions[0] }}

@@ -13,6 +13,11 @@
       homebrew:
         update_cache: yes
 
+    - name: source .bash_profile
+      shell: source {{ ansible_env.HOME }}/.bash_profile
+      args:
+        executable: /bin/bash
+
   tasks:
     - name: Install Homebrew
       include_tasks: ./tasks/install_brew.yml

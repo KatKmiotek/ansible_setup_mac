@@ -8,6 +8,11 @@
     name: azure-data-studio
     state: present
 
+- name: Install Remote Desktop
+  homebrew_cask:
+    name: microsoft-remote-desktop
+    state: present
+
 - name: Install Slack via Homebrew Cask
   homebrew_cask:
     name: slack

@@ -14,12 +14,7 @@
     create: yes
     state: present
     backup: yes
-
-- name: Apply changes from .bash_profile
-  shell: source {{ ansible_env.HOME }}/.bash_profile
-  args:
-    executable: /bin/bash
-  ignore_errors: true
+  notify: source .bash_profile
 
 - name: Install Rosetta 2
   shell: /usr/sbin/softwareupdate --install-rosetta --agree-to-license

@@ -11,8 +11,19 @@
     create: yes
     insertafter: EOF
     backup: yes
+  notify: source .bash_profile
 
-- name: Source .bash_profile
+- name: Initialize fnm
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    line: 'eval "$(fnm env)"'
+    state: present
+    create: yes
+    insertafter: EOF
+    backup: yes
+  notify: source .bash_profile
+
+- name: Source .bash_profile to apply changes
   shell: source {{ ansible_env.HOME }}/.bash_profile
   args:
     executable: /bin/bash

@@ -1,6 +1,6 @@
 - name: Install .NET SDK s
   homebrew:
-    name: "dotnet-sdk@{{ item }}.0"
+    name: "dotnet-sdk"
     state: present
   loop: "{{ dotnet_versions }}"
 

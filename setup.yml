@@ -40,11 +40,11 @@
     - name: Install infra tools
       include_tasks: ./tasks/install_infra_tools.yml
 
-    - name: Install .NET
-      include_tasks: ./tasks/install_dotnet.yml
+    # - name: Install .NET
+    #   include_tasks: ./tasks/install_dotnet.yml
     
+    - name: Install desktop apps
+      include_tasks: ./tasks/install_apps.yml
+
     - name: Install Warp
       include_tasks: ./tasks/install_warp.yml
-
-
-        

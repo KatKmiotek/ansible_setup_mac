@@ -3,13 +3,13 @@ node_versions:
   - '18'
   - '16'
 
-dotnet_vesrions:
+dotnet_versions:
 - '6'
 - '7'
 - '8'
 
 git_user: KatKmiotek
-git_email: kat.kmiotek@zoopla.co.uk
+git_email: katarzyna.kmiotek@yahoo.com
 
 git_aliases:
 - { name: 'st', value: 'status' }
@@ -40,9 +40,10 @@ vs_code_extensions:
 - streetsidesoftware.code-spell-checker
 - johnpapa.vscode-peacock
 - SonarSource.sonarlint-vscode
+- yzhang.markdown-all-in-one
 
 gist_url: "https://gist.githubusercontent.com/KatKmiotek/a3f61801c173258d26c09a1d605b8223/raw/1f9e47ba7242c3d51959e3409892b32cd07ae361/vs-settings.json"
-vs_code_settings_dir: "{{ ansible_env.HOME }}/.config/Code/User"
+vs_code_settings_dir: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
 vs_code_settings_file: "{{ vs_code_settings_dir }}/settings.json"
 
 node_global_packages: 
@@ -52,4 +53,3 @@ node_global_packages:
 - pnpm
 
 aws_region: "eu-west-1"
-

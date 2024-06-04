@@ -11,4 +11,9 @@
     state: present
     create: yes
 
-    
+- name: Add .bash_profile to .zshrc
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    line: '[[ -f "$HOME/.bash_profile" ]] && source "$HOME/.bash_profile"'
+    state: present
+    create: yes    
